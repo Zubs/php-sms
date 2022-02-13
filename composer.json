@@ -5,7 +5,7 @@
     "license": "ISC",
     "autoload": {
         "psr-4": {
-            "Zubair\\PhpSms\\": "src/"
+            "App\\": "src/"
         }
     },
     "authors": [
