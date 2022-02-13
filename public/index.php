@@ -3,10 +3,14 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Environment;
+use App\SMSNotification;
 
 $environment = new Environment('');
 $environment->load();
 
-$secret_something = getenv('XXX_KEY');
+$notification = new SMSNotification();
+$notification->setBody("I love myself. I love PHP");
+$notification->setTo('+2348024337127');
+$test = $notification->send();
 
-var_dump($secret_something);
+echo $test;
