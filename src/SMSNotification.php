@@ -4,7 +4,7 @@ namespace App;
 
 class SMSNotification
 {
-    const FROM = "+812625-2537";
+    const FROM = "+18126252537";
 
     protected string $to;
     protected string $sid;
@@ -33,7 +33,8 @@ class SMSNotification
 
     protected function getHeaders() {
         return [
-            'Authorization' => "Basic " . "JFRXSUxJT19BQ0NPVU5UX1NJRDokVFdJTElPX0FVVEhfVE9LRU4=",
+            'Authorization: Basic ' . base64_encode($this->sid . ":" . $this->token),
+            'Accept: application/json'
         ];
     }
 
@@ -45,9 +46,9 @@ class SMSNotification
 
     protected function makeBody() {
         return json_encode([
+            'To' => $this->to,
             'From' => self::FROM,
-            'body' => $this->body,
-            'to' => $this->to,
+            'Body' => $this->body,
         ]);
     }
 

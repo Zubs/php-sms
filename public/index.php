@@ -10,7 +10,7 @@ $environment->load();
 
 $notification = new SMSNotification();
 $notification->setBody("I love myself. I love PHP");
-$notification->setTo('+2348024337127');
+$notification->setTo('+15558675310');
 $test = $notification->send();
 
 echo $test;
